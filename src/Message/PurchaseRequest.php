@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\MOLPayID\Message;
+namespace Omnipay\MOLPay\Message;
 
 /**
  * MOLPay Purchase Request.

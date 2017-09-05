@@ -16,15 +16,15 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "JacklyGs",
+            "name": "gstearmit",
             "email": "gstearmit@gmail.com"
         }
     ],
     "autoload": {
-        "psr-4": { "Omnipay\\MOLPayID\\" : "src/" }
+        "psr-4": { "Omnipay\\MOLPay\\" : "src/" }
     },
     "autoload-dev": {
-        "psr-4": { "Omnipay\\MOLPayID\\Tests\\": "tests/" }
+        "psr-4": { "Omnipay\\MOLPay\\Tests\\": "tests/" }
     },
     "require": {
         "omnipay/common": "~2.0"

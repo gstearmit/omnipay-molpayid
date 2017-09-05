@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\MOLPayID\Exception;
+namespace Omnipay\MOLPay\Exception;
 
 use Omnipay\Common\Exception\OmnipayException;
 

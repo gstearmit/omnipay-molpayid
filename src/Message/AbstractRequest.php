@@ -1,12 +1,12 @@
 <?php
 
-namespace Omnipay\MOLPayID\Message;
+namespace Omnipay\MOLPay\Message;
 
 use Omnipay\Common\Helper;
 use Omnipay\Common\Message\AbstractRequest as BaseAbstractRequest;
-use Omnipay\MOLPayID\Exception\InvalidCreditCardDetailsException;
-use Omnipay\MOLPayID\Exception\InvalidPaymentMethodException;
-use Omnipay\MOLPayID\PaymentMethod;
+use Omnipay\MOLPay\Exception\InvalidCreditCardDetailsException;
+use Omnipay\MOLPay\Exception\InvalidPaymentMethodException;
+use Omnipay\MOLPay\PaymentMethod;
 
 abstract class AbstractRequest extends BaseAbstractRequest
 {

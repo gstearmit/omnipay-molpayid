@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\MOLPayID;
+namespace Omnipay\MOLPay;
 
 use Omnipay\Common\CreditCard;
 use Omnipay\Tests\GatewayTestCase;
@@ -8,7 +8,7 @@ use Omnipay\Tests\GatewayTestCase;
 class GatewayTest extends GatewayTestCase
 {
     /**
-     * @var \Omnipay\MOLPayID\Gateway
+     * @var \Omnipay\MOLPay\Gateway
      */
     protected $gateway;
 
@@ -18,7 +18,7 @@ class GatewayTest extends GatewayTestCase
 
         $this->gateway = new Gateway($this->getHttpClient(), $this->getHttpRequest());
 
-        $this->gateway->setCurrency('RP');
+        $this->gateway->setCurrency('MYR');
         $this->gateway->setLocale('en');
         $this->gateway->setMerchantId('test1234');
         $this->gateway->setVerifyKey('abcdefg');
@@ -26,7 +26,7 @@ class GatewayTest extends GatewayTestCase
         $this->options = array(
             'amount' => '10.00',
             'card' => new CreditCard(array(
-                'country' => 'ID',
+                'country' => 'MY',
                 'email' => 'abc@example.com',
                 'name' => 'Lee Siong Chan',
                 'phone' => '0123456789',
@@ -45,8 +45,7 @@ class GatewayTest extends GatewayTestCase
         $this->assertTrue($response->isRedirect());
         $this->assertNull($response->getTransactionReference());
         $this->assertEquals(
-           // 'https://secure.molpay.co.id/MOLPay/pay/test1234/?amount=10.00&bill_desc=Test+Payment&bill_email=abc%40example.com&bill_mobile=0123456789&bill_name=Lee+Siong+Chan&channel=credit&country=ID&currency=RP&langcode=en&orderid=20160331082207680000&vcode=f3d5496b444ae3d11e09fa92a753ac60',
-            'https://www.onlinepayment.com.my/MOLPay/pay/test1234/?amount=10.00&bill_desc=Test+Payment&bill_email=abc%40example.com&bill_mobile=0123456789&bill_name=Lee+Siong+Chan&channel=credit&country=ID&currency=RP&langcode=en&orderid=20160331082207680000&vcode=f3d5496b444ae3d11e09fa92a753ac60',
+            'https://www.onlinepayment.com.my/MOLPay/pay/test1234/?amount=10.00&bill_desc=Test+Payment&bill_email=abc%40example.com&bill_mobile=0123456789&bill_name=Lee+Siong+Chan&channel=credit&country=MY&currency=MYR&langcode=en&orderid=20160331082207680000&vcode=f3d5496b444ae3d11e09fa92a753ac60',
             $response->getRedirectUrl()
         );
     }

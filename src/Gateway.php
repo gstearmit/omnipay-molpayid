@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\MOLPayID;
+namespace Omnipay\MOLPay;
 
 use Omnipay\Common\AbstractGateway;
 
@@ -13,7 +13,7 @@ class Gateway extends AbstractGateway
      */
     public function getName()
     {
-        return 'MOLPayID';
+        return 'MOLPay';
     }
 
     /**
