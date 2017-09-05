@@ -25,6 +25,15 @@ to your `composer.json` file:
     }
 }
 ```
+ or 
+ 
+```json
+{
+    "require": {
+        "weshop/omnipaymolpayid": "~2.0"
+    }
+}
+```
 
 And run composer to update your dependencies:
 
@@ -95,15 +104,4 @@ if ($response->isSuccessful()) {
 
 Omnipay does not cover recurring payments or billing agreements, and so those features are not included in this package. Extensions to this gateway are always welcome. 
 
-## Support
 
-If you are having general issues with Omnipay, we suggest posting on
-[Stack Overflow](http://stackoverflow.com/). Be sure to add the
-[omnipay tag](http://stackoverflow.com/questions/tagged/omnipay) so it can be easily found.
-
-If you want to keep up to date with release anouncements, discuss ideas for the project,
-or ask more detailed questions, there is also a [mailing list](https://groups.google.com/forum/#!forum/omnipay) which
-you can subscribe to.
-
-If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/leesiongchan/omnipay-MOLPayID/issues),
-or better yet, fork the library and submit a pull request.
