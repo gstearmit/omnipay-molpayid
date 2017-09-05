@@ -1,0 +1,40 @@
+{
+    "name": "JacklyGs/omnipay-molpay-id",
+    "type": "library",
+    "description": "MOLPayID gateway for Omnipay payment processing library",
+    "keywords": [
+        "gateway",
+        "merchant",
+        "molpay",
+        "molpayid",
+        "omnipay",
+        "pay",
+        "payment",
+        "purchase"
+    ],
+    "homepage": "https://github.com/gstearmit/omnipay-molpay-id.git",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "JacklyGs",
+            "email": "gstearmit@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Omnipay\\MOLPayID\\" : "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Omnipay\\MOLPayID\\Tests\\": "tests/" }
+    },
+    "require": {
+        "omnipay/common": "~2.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "~2.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    }
+}
