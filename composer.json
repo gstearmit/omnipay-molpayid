@@ -1,5 +1,5 @@
 {
-    "name": "gstearmit/omnipay-molpay-id",
+    "name": "gstearmit/omnipay-molpayid",
     "type": "library",
     "description": "MOLPayID gateway for Omnipay payment processing library",
     "keywords": [

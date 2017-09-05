@@ -21,7 +21,7 @@ to your `composer.json` file:
 ```json
 {
     "require": {
-        "gstearmit/omnipay-molpay-id": "~2.0"
+        "gstearmit/omnipay-molpayid": "~2.0"
     }
 }
 ```
@@ -105,7 +105,8 @@ if ($response->isSuccessful()) {
 Omnipay does not cover recurring payments or billing agreements, and so those features are not included in this package. Extensions to this gateway are always welcome. 
 
 --------------------
-phpunit --bootstrap  src/Message/PurchaseRequest.php  tests/Message/PurchaseRequestTest.php
+1. $ phpunit --bootstrap  src/Message/PurchaseRequest.php  tests/Message/PurchaseRequestTest.php
+2. $ composer update --verbose
 
 
 
