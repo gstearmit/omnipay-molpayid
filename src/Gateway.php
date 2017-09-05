@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\MOLPay;
+namespace Omnipay\MOLPayID;
 
 use Omnipay\Common\AbstractGateway;
 
@@ -13,7 +13,7 @@ class Gateway extends AbstractGateway
      */
     public function getName()
     {
-        return 'MOLPay';
+        return 'MOLPayID';
     }
 
     /**
@@ -127,11 +127,11 @@ class Gateway extends AbstractGateway
      *
      * @param array $parameters
      *
-     * @return \Omnipay\MOLPay\Message\PurchaseRequest
+     * @return \Omnipay\MOLPayID\Message\PurchaseRequest
      */
     public function purchase(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\MOLPay\Message\PurchaseRequest', $parameters);
+        return $this->createRequest('\Omnipay\MOLPayID\Message\PurchaseRequest', $parameters);
     }
 
     /**
@@ -139,12 +139,12 @@ class Gateway extends AbstractGateway
      *
      * @param array $parameters
      *
-     * @return \Omnipay\MOLPay\Message\CompletePurchaseRequest
+     * @return \Omnipay\MOLPayID\Message\CompletePurchaseRequest
      */
     public function completePurchase(array $parameters = array())
     {
         return $this->createRequest(
-            '\Omnipay\MOLPay\Message\CompletePurchaseRequest',
+            '\Omnipay\MOLPayID\Message\CompletePurchaseRequest',
             array_merge(
                 $parameters,
                 array(

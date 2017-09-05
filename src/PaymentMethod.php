@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\MOLPay;
+namespace Omnipay\MOLPayID;
 
 /**
  * Payment methods accepted by MOLPay.

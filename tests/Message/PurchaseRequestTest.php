@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\MOLPay\Message;
+namespace Omnipay\MOLPayID\Message;
 
 use Omnipay\Common\CreditCard;
 use Omnipay\Tests\TestCase;

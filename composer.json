@@ -12,7 +12,7 @@
         "payment",
         "purchase"
     ],
-    "homepage": "https://github.com/gstearmit/omnipay-molpay-id.git",
+    "homepage": "https://github.com/gstearmit/omnipay-molpayid.git",
     "license": "MIT",
     "authors": [
         {
@@ -21,10 +21,10 @@
         }
     ],
     "autoload": {
-        "psr-4": { "Omnipay\\MOLPay\\" : "src/" }
+        "psr-4": { "Omnipay\\MOLPayID\\" : "src/" }
     },
     "autoload-dev": {
-        "psr-4": { "Omnipay\\MOLPay\\Tests\\": "tests/" }
+        "psr-4": { "Omnipay\\MOLPayID\\Tests\\": "tests/" }
     },
     "require": {
         "omnipay/common": "~2.0"

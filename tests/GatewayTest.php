@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\MOLPay;
+namespace Omnipay\MOLPayID;
 
 use Omnipay\Common\CreditCard;
 use Omnipay\Tests\GatewayTestCase;
@@ -8,7 +8,7 @@ use Omnipay\Tests\GatewayTestCase;
 class GatewayTest extends GatewayTestCase
 {
     /**
-     * @var \Omnipay\MOLPay\Gateway
+     * @var \Omnipay\MOLPayID\Gateway
      */
     protected $gateway;
 

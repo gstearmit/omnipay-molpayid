@@ -105,7 +105,11 @@ if ($response->isSuccessful()) {
 Omnipay does not cover recurring payments or billing agreements, and so those features are not included in this package. Extensions to this gateway are always welcome. 
 
 --------------------
-1. $ phpunit --bootstrap  src/Message/PurchaseRequest.php  tests/Message/PurchaseRequestTest.php
+1. PHPUNIT 
+   $ phpunit --bootstrap  src/Message/PurchaseRequest.php  tests/Message/PurchaseRequestTest.php
+   $ phpunit --coverage-text
+   $ phpunit 
+
 2. $ composer update --verbose
 
 
