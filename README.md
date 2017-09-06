@@ -112,5 +112,87 @@ Omnipay does not cover recurring payments or billing agreements, and so those fe
 
 2. $ composer update --verbose
 
+3. composer dump-autoload
+
+4. Bao cao tien do kiem tra nhanh
+   $ phpunit --testdox
+
+    Omnipay\MOLPayID\Gateway
+     [x] Purchase
+     [x] Complete purchase success
+     [x] Complete purchase invalid s key
+     [x] Complete purchase error
+     [x] Get name not empty
+     [x] Get short name not empty
+     [x] Get default parameters returns array
+     [x] Default parameters have matching methods
+     [x] Test mode
+     [x] Currency
+     [x] Supports authorize
+     [x] Supports complete authorize
+     [x] Supports capture
+     [x] Supports purchase
+     [x] Supports complete purchase
+     [x] Supports refund
+     [x] Supports void
+     [x] Supports create card
+     [x] Supports delete card
+     [x] Supports update card
+     [x] Authorize parameters
+     [x] Complete authorize parameters
+     [x] Capture parameters
+     [x] Purchase parameters
+     [x] Complete purchase parameters
+     [x] Refund parameters
+     [x] Void parameters
+     [x] Create card parameters
+     [x] Delete card parameters
+     [x] Update card parameters
+    
+    Omnipay\MOLPayID\Message\CompletePurchaseRequest
+     [ ] Get data
+     [ ] Send success
+     [ ] Send pending
+    
+    Omnipay\MOLPayID\Message\CompletePurchaseResponse
+     [x] Complete purchase success
+     [x] Complete purchase pending
+    
+    Omnipay\MOLPayID\Message\PurchaseRequest
+     [x] Get data
+     [x] Send success
+    
+    Omnipay\MOLPayID\Message\PurchaseResponse
+     [x] Purchase success
+
+5. $ phpunit --debug  : Xuất thông tin gỡ lỗi như tên của một bài kiểm tra khi bắt đầu thực hiện
 
 
+    Time: 1.09 seconds, Memory: 19.00MB
+    
+    There were 3 errors:
+    
+    1) Omnipay\MOLPayID\Message\CompletePurchaseRequestTest::testGetData
+    Omnipay\Common\Exception\InvalidResponseException: Invalid security key
+    
+    /Applications/XAMPP/xamppfiles/htdocs/omnipay-molpayid/src/Message/CompletePurchaseRequest.php:203
+    /Applications/XAMPP/xamppfiles/htdocs/omnipay-molpayid/tests/Message/CompletePurchaseRequestTest.php:29
+    
+    2) Omnipay\MOLPayID\Message\CompletePurchaseRequestTest::testSendSuccess
+    Omnipay\Common\Exception\InvalidResponseException: Invalid security key
+    
+    /Applications/XAMPP/xamppfiles/htdocs/omnipay-molpayid/src/Message/CompletePurchaseRequest.php:203
+    /Applications/XAMPP/xamppfiles/htdocs/omnipay-molpayid/vendor/omnipay/common/src/Omnipay/Common/Message/AbstractRequest.php:676
+    /Applications/XAMPP/xamppfiles/htdocs/omnipay-molpayid/tests/Message/CompletePurchaseRequestTest.php:40
+    
+    3) Omnipay\MOLPayID\Message\CompletePurchaseRequestTest::testSendPending
+    Omnipay\Common\Exception\InvalidResponseException: Invalid security key
+    
+    /Applications/XAMPP/xamppfiles/htdocs/omnipay-molpayid/src/Message/CompletePurchaseRequest.php:203
+    /Applications/XAMPP/xamppfiles/htdocs/omnipay-molpayid/vendor/omnipay/common/src/Omnipay/Common/Message/AbstractRequest.php:676
+    /Applications/XAMPP/xamppfiles/htdocs/omnipay-molpayid/tests/Message/CompletePurchaseRequestTest.php:54
+    
+    ERRORS!
+    Tests: 38, Assertions: 87, Errors: 3
+    
+6. 

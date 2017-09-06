@@ -12,15 +12,15 @@ class CompletePurchaseRequestTest extends TestCase
 
         $this->request->initialize(array(
             'amount' => '10.00',
-            'appCode' => 'abcdefg',
+            'appCode' => 'weshopindonesia',
             'currency' => 'MYR',
-            'domain' => 'test4321',
+            'domain' => 'weshop_visa',
             'payDate' => '2016-03-29 04:02:21',
             'sKey' => '9b8be764cc5bad1b4a5d58a3ba4daf58',
             'status' => '00',
             'transactionId' => '20160331082207680000',
             'transactionReference' => '000001',
-            'verifyKey' => 'abcdefg',
+            'verifyKey' => 'weshopindonesia',
         ));
     }
 
