@@ -7,8 +7,39 @@ use Omnipay\Tests\TestCase;
 
 class PurchaseRequestTest extends TestCase
 {
+    protected $MerchantId;
+    protected $VerifyKey;
+
+    protected $APP_ENV;
+
+    protected $APP_DEBUG;
+
+    /** get env **/
+    protected $Dev_MerchantId;
+    protected $Dev_VerifyKey;
+
+    protected $Pro_MerchantId;
+    protected $Pro_VerifyKey;
+
     public function setUp()
     {
+        /** set/get env **/
+        $this->APP_ENV   = @getenv('APP_ENV');
+
+        $this->APP_DEBUG = @getenv('APP_DEBUG');
+
+
+        $this->Dev_MerchantId = @getenv('Dev_MerchantId');
+        $this->Dev_VerifyKey  = @getenv('Dev_VerifyKey');
+
+        $this->Pro_MerchantId = @getenv('Pro_MerchantId');
+        $this->Pro_VerifyKey  = @getenv('Pro_VerifyKey');
+
+        /**** Set ENV TEST ****/
+        $this->MerchantId = ( $this->APP_ENV == 'local' and $this->APP_DEBUG == 'true') ? $this->Dev_MerchantId : $this->Pro_MerchantId;
+        $this->VerifyKey = ( $this->APP_ENV == 'local' and $this->APP_DEBUG == 'true') ? $this->Dev_VerifyKey : $this->Pro_VerifyKey;
+        /**** End Set ENV TEST ****/
+
         $this->request = new PurchaseRequest($this->getHttpClient(), $this->getHttpRequest());
 
         $this->request->initialize(array(
@@ -22,10 +53,10 @@ class PurchaseRequestTest extends TestCase
             'currency' => 'RP',
             'description' => 'Test Payment',
             'locale' => 'en',
-            'merchantId' => 'weshop_visa',
+            'merchantId' => $this->MerchantId,
             'paymentMethod' => 'credit',
             'transactionId' => '20160331082207680000',
-            'verifyKey' => 'weshopindonesia',
+            'verifyKey' => $this->VerifyKey,
         ));
     }
 

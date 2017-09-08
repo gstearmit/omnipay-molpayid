@@ -12,16 +12,47 @@ class GatewayTest extends GatewayTestCase
      */
     protected $gateway;
 
+    protected $MerchantId;
+    protected $VerifyKey;
+
+    protected $APP_ENV;
+
+    protected $APP_DEBUG;
+
+    /** get env **/
+    protected $Dev_MerchantId;
+    protected $Dev_VerifyKey;
+
+    protected $Pro_MerchantId;
+    protected $Pro_VerifyKey;
+
     public function setUp()
     {
         parent::setUp();
+
+        /** set/get env **/
+        $this->APP_ENV   = @getenv('APP_ENV');
+
+        $this->APP_DEBUG = @getenv('APP_DEBUG');
+
+
+        $this->Dev_MerchantId = @getenv('Dev_MerchantId');
+        $this->Dev_VerifyKey  = @getenv('Dev_VerifyKey');
+
+        $this->Pro_MerchantId = @getenv('Pro_MerchantId');
+        $this->Pro_VerifyKey  = @getenv('Pro_VerifyKey');
+
+        /**** Set ENV TEST ****/
+        $this->MerchantId = ( $this->APP_ENV == 'local' and $this->APP_DEBUG == 'true') ? $this->Dev_MerchantId : $this->Pro_MerchantId;
+        $this->VerifyKey = ( $this->APP_ENV == 'local' and $this->APP_DEBUG == 'true') ? $this->Dev_VerifyKey : $this->Pro_VerifyKey;
+        /**** End Set ENV TEST ****/
 
         $this->gateway = new Gateway($this->getHttpClient(), $this->getHttpRequest());
 
         $this->gateway->setCurrency('MYR');
         $this->gateway->setLocale('en');
-        $this->gateway->setMerchantId('test1234');
-        $this->gateway->setVerifyKey('abcdefg');
+        $this->gateway->setMerchantId($this->MerchantId);
+        $this->gateway->setVerifyKey($this->VerifyKey);
 
         $this->options = array(
             'amount' => '10.00',
@@ -54,8 +85,8 @@ class GatewayTest extends GatewayTestCase
     public function testCompletePurchaseSuccess()
     {
         $this->getHttpRequest()->request->replace(array(
-            'appcode' => 'abcdefg',
-            'domain' => 'test4321',
+            'appcode' => $this->VerifyKey,
+            'domain' => $this->MerchantId,
             'paydate' => '2016-03-29 04:02:21',
             'skey' => '9b8be764cc5bad1b4a5d58a3ba4daf58',
             'status' => '00',
@@ -74,8 +105,8 @@ class GatewayTest extends GatewayTestCase
     public function testCompletePurchaseInvalidSKey()
     {
         $this->getHttpRequest()->request->replace(array(
-            'appcode' => 'abcdefg',
-            'domain' => 'test4321',
+            'appcode' => $this->VerifyKey,
+            'domain' => $this->MerchantId,
             'paydate' => '2016-03-29 04:02:21',
             'skey' => 'I_AM_INVALID_SKEY',
             'status' => '11',
@@ -91,8 +122,8 @@ class GatewayTest extends GatewayTestCase
     public function testCompletePurchaseError()
     {
         $this->getHttpRequest()->request->replace(array(
-            'appcode' => 'abcdefg',
-            'domain' => 'test4321',
+            'appcode' => $this->VerifyKey,
+            'domain' => $this->MerchantId,
             'paydate' => 'I am not a date',
             'skey' => 'ef0903d1906d0968605155f85ec9fcd5',
             'status' => '11',
